@@ -1,14 +1,61 @@
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
+
+//VARIABLES ====================================================================
+
+
+//Mode Varables
 int mode;
 final int INTRO = 0;
 final int GAME = 1;
 final int PAUSE = 2;
 final int GAMEOVER = 3;
 
+
+//target Varables
+float x,y,d;
+
+float vx, vy; //velocities
+
+int score = 0;
+int lives = 3;
+
+
+//Pallette
+float randomR =255;
+float randomG =255;
+float randomB =255;
+
+
+
+//Sound
+Minim minim;  
+
+
+//SETUP ============================================================================
+
+
 void setup() {
   size(800, 800);
   mode = INTRO;
   textAlign(CENTER, CENTER);
+  
+  //TARGET INITALIZATION
+  y= height/2;
+  x = width/2;
+  d =  (width+height)/16;
+  vx = random(-5,5);
+  vy = random(-5,5);
+  
 }
+
+
+//SCENE LOADER =========================================================================
 
 void draw() {
   if (mode == INTRO) {
