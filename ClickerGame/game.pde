@@ -4,7 +4,18 @@ void game() {
 
   //display target
   stroke(0);
+
+  fill(255);
   circle(x, y, d);
+
+  fill(randomR, randomG, randomB);
+  circle(x, y, d/1.25);
+
+  fill(255);
+  circle(x, y, d/1.7);
+
+  fill(randomR, randomG, randomB);
+  circle(x, y, d/3);
 
 
   //movement
@@ -14,13 +25,19 @@ void game() {
   //bounce
   if (x-d/2 <0 || x+d/2> width) {
 
-    vx = vx *-1;
-    fill(random(255), random(255), random(255));
+    randomR = random(255);
+    randomG = random(255);
+    randomB = random(255);
+    fill(randomR, randomG, randomB);
+    vx = vx*-1;
   }
   if (y-d/2 <0 || y+d/2> width) {
 
-    vy = vy *-1;
-    fill(random(255), random(255), random(255));
+    randomR = random(255);
+    randomG = random(255);
+    randomB = random(255);
+    fill(randomR, randomG, randomB);
+    vy = vy*-1;
   }
 
   //Score
@@ -34,8 +51,13 @@ void gameClicks() {
 
   if (dist(mouseX, mouseY, x, y) <50 ) {
     score += 1;
-    vx = vx *1.1;
-    vy = vy *1.1;
+    randomR = random(255);
+    randomG = random(255);
+    randomB = random(255);
+    fill(randomR, randomG, randomB);
+    hit.setGain(6);
+    hit.rewind();
+    hit.play();
   } else {
     lives -= 1;
     if (lives == 0) mode = GAMEOVER;

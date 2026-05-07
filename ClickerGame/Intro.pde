@@ -2,6 +2,7 @@ void Intro() {
   background(0, 0, 0);
   strokeWeight(5);
   stroke(0);
+  theme.play();
   
   
   fill(randomR,randomG,randomB);

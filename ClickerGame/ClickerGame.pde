@@ -15,6 +15,7 @@ final int INTRO = 0;
 final int GAME = 1;
 final int PAUSE = 2;
 final int GAMEOVER = 3;
+final int SELECT = 4;
 
 
 //target Varables
@@ -35,6 +36,8 @@ float randomB =255;
 
 //Sound
 Minim minim;  
+AudioPlayer theme, hit, miss, hyper;
+
 
 
 //SETUP ============================================================================
@@ -52,6 +55,13 @@ void setup() {
   vx = random(-5,5);
   vy = random(-5,5);
   
+  
+  //minim
+  minim = new Minim(this);
+  theme = minim.loadFile("djartmusic-the-return-of-the-8-bit-era-301292.mp3");
+  hit = minim.loadFile("dragon-studio-ding-402325.mp3");
+  miss = minim.loadFile("djartmusic-the-return-of-the-8-bit-era-301292.mp3");
+  hyper = minim.loadFile("djartmusic-the-return-of-the-8-bit-era-301292.mp3");
 }
 
 
@@ -66,7 +76,9 @@ void draw() {
     pause();
   } else if (mode == GAMEOVER) {
     gameover();
-  } else {
+  } else if (mode == SELECT) {
+    select();
+  }else {
     println("Error ; Mode = " + mode);
   }
 }
