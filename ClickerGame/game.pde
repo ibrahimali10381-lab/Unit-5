@@ -60,6 +60,9 @@ void gameClicks() {
     hit.play();
   } else {
     lives -= 1;
+    miss.setGain(6);
+    miss.rewind();
+    miss.play();
     if (lives == 0) mode = GAMEOVER;
   }
 }

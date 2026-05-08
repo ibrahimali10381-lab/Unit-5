@@ -1,4 +1,4 @@
-void mouseReleased(){
+void mouseReleased() {
   if (mode == INTRO) {
     IntroClicks();
   } else if (mode == GAME) {
@@ -7,11 +7,19 @@ void mouseReleased(){
     pauseClicks();
   } else if (mode == GAMEOVER) {
     gameoverClicks();
+  } else if (mode == SELECT) {
+    selectClicks();
+  } else if (mode == SIZE) {
+    SizeClicks();
+  } else if (mode == PAUSE) {
+    SpeedClicks();
+  } else if (mode == GAMEOVER) {
+    TargetClicks();
   }
 }
 
-void tactileRect(int x, int y, int w, int z){
-  if(mouseX>x && mouseX<x+w && mouseY>y && mouseY<y+z){
-    stroke(255,0,0);
+void tactileRect(int x, int y, int w, int z) {
+  if (mouseX>x && mouseX<x+w && mouseY>y && mouseY<y+z) {
+    stroke(255, 0, 0);
   }
 }
