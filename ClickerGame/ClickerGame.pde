@@ -22,11 +22,17 @@ final int TARGET = 7;
 
 
 //target Varables
-float x, y, d;
+float x, y, d; //Place
 
 float vx, vy, s; //velocities
 
+int targetType = 0; //Target Shape
+float sliderX = 300;
+PImage dvd;
+
+
 int score = 0;
+int highScore = 0;
 int lives = 3;
 
 
@@ -34,6 +40,8 @@ int lives = 3;
 float randomR =random(255);
 float randomG =random(255);
 float randomB =random(255);
+
+
 
 
 
@@ -66,7 +74,10 @@ void setup() {
   hit = minim.loadFile("dragon-studio-ding-402325.mp3");
   miss = minim.loadFile("floraphonic-classic-game-action-negative-6-224416.mp3");
   hyper = minim.loadFile("djartmusic-the-return-of-the-8-bit-era-301292.mp3");
-  gameover = minim.loadFile("djartmusic-the-return-of-the-8-bit-era-301292.mp3");
+  gameover = minim.loadFile("FAILURE.wav");
+  
+  //Images
+  dvd = loadImage("OIP.png");
 }
 
 
