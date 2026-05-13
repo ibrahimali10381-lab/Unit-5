@@ -28,6 +28,7 @@ float vx, vy, s; //velocities
 
 int targetType = 0; //Target Shape
 float sliderX = 300;
+float sliderSpeed = 300;
 PImage dvd;
 
 
