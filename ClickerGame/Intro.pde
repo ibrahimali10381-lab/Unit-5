@@ -3,6 +3,9 @@ void Intro() {
   strokeWeight(5);
   stroke(0);
   theme.play();
+  if (frameCount >= 2000){
+   theme.rewind(); 
+  }
 
 
   fill(randomR, randomG, randomB);
@@ -14,7 +17,7 @@ void Intro() {
   tactileRect(300, 500, 200, 100);
   rect(300, 500, 200, 100);
   textSize(100);
-  
+
   stroke(0);
   tactileRect(300, 650, 200, 100);
   rect(300, 650, 200, 100);
@@ -35,5 +38,32 @@ void IntroClicks() {
   }
   if (mouseX>300 && mouseX <500 && mouseY>650 && mouseY<750) {
     mode = SELECT;
+  }
+}
+
+
+void targetShape(int num, float x, float y, float d) {
+  if (num == 0) {
+    fill(255);
+    circle(x, y, d);
+
+    fill(randomR, randomG, randomB);
+    circle(x, y, d/1.25);
+
+    fill(255);
+    circle(x, y, d/1.7);
+
+    fill(randomR, randomG, randomB);
+    circle(x, y, d/3);
+  } else if (num == 1) {
+    fill(randomR, randomG, randomB);
+    circle(x, y, d);
+  } else if (num == 2) {
+    fill(randomR, randomG, randomB);
+    textSize(d);
+    text("D",x,y);
+    text("V",x+d/2,y);
+    text("D",x+d,y);
+    ellipse(x+d/2,y+50,d*1.7,d/2.5);
   }
 }

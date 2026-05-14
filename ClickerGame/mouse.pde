@@ -11,10 +11,19 @@ void mouseReleased() {
     selectClicks();
   } else if (mode == SIZE) {
     SizeClicks();
-  } else if (mode == PAUSE) {
+  } else if (mode == SPEED) {
     SpeedClicks();
-  } else if (mode == GAMEOVER) {
+  } else if (mode == TARGET) {
     TargetClicks();
+  }
+}
+
+void mouseDragged() {
+  if (mode == SIZE) {
+    SizeClicks();
+  }
+  if (mode == SPEED) {
+    SpeedClicks();
   }
 }
 

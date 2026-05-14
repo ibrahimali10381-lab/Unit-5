@@ -36,6 +36,12 @@ int score = 0;
 int highScore = 0;
 int lives = 3;
 
+//hyper variables
+int multiplier = 1;
+boolean hyperMode = false;
+int timer;
+
+
 
 //Pallette
 float randomR =random(255);
