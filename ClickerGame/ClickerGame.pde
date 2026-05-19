@@ -27,8 +27,8 @@ float x, y, d; //Place
 float vx, vy, s; //velocities
 
 int targetType = 0; //Target Shape
-float sliderX = 300;
-float sliderSpeed = 300;
+float sliderX = 500;
+float sliderSpeed = 500;
 PImage dvd;
 
 
@@ -69,7 +69,7 @@ void setup() {
   //TARGET INITALIZATION
   y= height/2;
   x = width/2;
-  d =  (width+height)/16;
+  d =  (width+height)/8;
   s = 5;
   vx = s*cos(random(360));
   vy = s*sin(random(360));

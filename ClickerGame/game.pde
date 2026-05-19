@@ -73,7 +73,7 @@ void gameClicks() {
     hit.setGain(6);
     hit.rewind();
     hit.play();
-  } else if ( targetType == 2 && mouseX>x && mouseX<x+2*d && mouseY> y-20 && mouseY<y+2*d) {
+  } else if ( targetType == 2 && mouseX>x-d && mouseX<x+d && mouseY> y-d && mouseY<y+d) {
     score += 1*multiplier;
     randomR = random(255);
     randomG = random(255);

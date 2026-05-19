@@ -3,10 +3,14 @@ void Intro() {
   strokeWeight(5);
   stroke(0);
   theme.play();
-  if (frameCount >= 2000){
-   theme.rewind(); 
+  hyperMode = false;
+
+  if (frameCount >= 2000) {
+    theme.rewind();
   }
 
+  vx = s*cos(random(360));
+  vy = s*sin(random(360));
 
   fill(randomR, randomG, randomB);
   if (frameCount%100 == 0) {
@@ -59,11 +63,16 @@ void targetShape(int num, float x, float y, float d) {
     fill(randomR, randomG, randomB);
     circle(x, y, d);
   } else if (num == 2) {
+    pushMatrix();
+    translate(x, y);
     fill(randomR, randomG, randomB);
-    textSize(d);
-    text("D",x,y);
-    text("V",x+d/2,y);
-    text("D",x+d,y);
-    ellipse(x+d/2,y+50,d*1.7,d/2.5);
+    stroke(randomR, randomG, randomB);
+    strokeWeight(2);
+    ellipse(0, d * 0.2, d * 1.5, d * 0.4);
+    textAlign(CENTER, CENTER);
+    textSize(d * 0.6);
+    text("DVD", 0, -d * 0.1);
+    noStroke();
+    popMatrix();
   }
 }

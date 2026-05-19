@@ -2,6 +2,11 @@ void gameover() {
   background(0);
   theme.pause();
   gameover.play();
+  hyperMode = false;
+  timer = 0;
+  multiplier =1;
+  
+  
   if (score>= highScore) {
     highScore = score;
     score = 0;

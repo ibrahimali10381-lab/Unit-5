@@ -39,5 +39,7 @@ void SliderSpeed() {
   if (mouseX>250 && mouseX<600 && mouseY <475 && mouseY >425) {
     sliderSpeed = mouseX;
   }
-  s = map(sliderX, 250, 600, 3, 30);
+  s = map(sliderX, 250, 600, 1, 30);
+  vx = s*cos(random(360));
+  vy = s*sin(random(360));
 }
