@@ -20,6 +20,8 @@ void target() {
   tactileRect(300, 675, 200, 100);
   rect(300, 675, 200, 100);
   stroke(0);
+  
+  targetShape(targetType, 400, 400, (width+height)/16);
 
 
   fill(255);

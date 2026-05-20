@@ -1,3 +1,10 @@
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
 //Pallette
 color pink = #FF0F53;
 color green = #558A67;
@@ -16,6 +23,7 @@ final int GAMEOVER = 3;
 float leftx, lefty, leftd, rightx, righty, rightd; //paddles
 float ballx, bally, balld;//ball
 float vx, vy, s;
+boolean AI = false;
 
 //Keyboard variables
 boolean wkey, skey, upkey, downkey;
@@ -26,7 +34,8 @@ int score1,score2,timer;
 
 void setup() {
   size(800, 800);
-  mode = GAME;
+  textAlign(CENTER);
+  mode = INTRO;
 
 
   //initalise paddles
@@ -49,6 +58,12 @@ void setup() {
 
   //initialise keyboard
   skey = wkey = upkey = downkey = false;
+  
+  //initialise scores
+  score1 = 0;
+  score2 = 0;
+  timer = 100;
+  
 }
 
 void draw() {
