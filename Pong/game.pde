@@ -1,11 +1,19 @@
 void game() {
-  background(0);
+  background(blue);
   textAlign(CENTER);
+  stroke(0);
 
 
   //draw paddles
+  fill(pink);
   circle(leftx, lefty, leftd);
+  fill(255);
+  circle(leftx, lefty, leftd/2);
+
+  fill(green);
   circle(rightx, righty, rightd);
+  fill(255);
+  circle(rightx, righty, rightd/2);
 
   //move paddles
   if (wkey == true) lefty = lefty -10;
@@ -15,13 +23,18 @@ void game() {
   if (AI != true) {
     if (upkey == true) righty = righty -10;
     if (downkey == true) righty = righty +10;
+  } else if (ballx>width/2) {
+
+    if (righty < bally) {
+      righty += 10;
+      righty += 0.1;
+    } else if (righty > bally) {
+      righty -= 10;
+      righty -= 0.1;
+    }
   }
-  else{
-    
-   righty = bally; 
-  }
-  
-  
+
+
   if (lefty <leftd/2) lefty = leftd/2;
   if (righty <rightd/2) righty = rightd/2;
   if (lefty >height-leftd/2) lefty = height-leftd/2;
@@ -45,12 +58,18 @@ void game() {
     ballx = width/2;
     bally = height/2;
     timer = 100;
+    a = 15;
+    vx = s*cos(random(360));
+    vy = s*sin(random(360));
   }
   if (ballx>width) {
     score1 +=1;
     ballx = width/2;
     bally = height/2;
     timer = 100;
+    a = 15;
+    vx = s*cos(random(360));
+    vy = s*sin(random(360));
   }
 
 
@@ -63,12 +82,14 @@ void game() {
 
   //Ball Bounce Paddles
   if (dist(leftx, lefty, ballx, bally) <= (balld+leftd)/2) {
-    vx = (ballx - leftx)/15;
-    vy = (bally - lefty)/15;
+    vx = (ballx - leftx)/a;
+    vy = (bally - lefty)/a;
+    a = a/1.1;
   }
   if (dist(rightx, righty, ballx, bally) <= (balld+rightd)/2) {
-    vx = (ballx - rightx)/15;
-    vy = (bally - righty)/15;
+    vx = (ballx - rightx)/a;
+    vy = (bally - righty)/a;
+    a = a/1.1;
   }
 
   //ScoreBoard

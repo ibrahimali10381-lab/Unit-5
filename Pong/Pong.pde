@@ -6,10 +6,16 @@ import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 
 //Pallette
-color pink = #FF0F53;
-color green = #558A67;
+color pink = #E82F25;
+color green = #32D302;
+color blue = #5FA1E5;
+ 
 
-
+//Intro stuff
+boolean cloudOn;
+float cloudMove;
+float cloudY;
+int time;
 
 
 //Mode Framework
@@ -19,18 +25,27 @@ final int GAME = 1;
 final int PAUSE = 2;
 final int GAMEOVER = 3;
 
-//entity variables
+//Game entity variables
 float leftx, lefty, leftd, rightx, righty, rightd; //paddles
 float ballx, bally, balld;//ball
 float vx, vy, s;
 boolean AI = false;
+float a =15;
 
 //Keyboard variables
 boolean wkey, skey, upkey, downkey;
 
 
 //Score
-int score1,score2,timer;
+int score1, score2, timer;
+
+
+//Images
+PImage background, cloud;
+
+//Sound
+Minim minim;
+AudioPlayer theme;
 
 void setup() {
   size(800, 800);
@@ -58,12 +73,21 @@ void setup() {
 
   //initialise keyboard
   skey = wkey = upkey = downkey = false;
-  
+
   //initialise scores
   score1 = 0;
   score2 = 0;
   timer = 100;
-  
+
+
+  //Images
+  background = loadImage("wp7619435.jpg");
+  cloud = loadImage("cloud.png");
+
+
+  //Sound
+  minim = new Minim(this);
+  theme = minim.loadFile("SUPER MARIO BROS. THEME SONG - OFFICIAL REMIX (TRAP MUSIC).mp3");
 }
 
 void draw() {
