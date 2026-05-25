@@ -27,14 +27,22 @@ float paddlex, paddley, paddled; //paddles
 float ballx, bally, balld;//ball
 float vx, vy, s;
 float a =15;
+boolean win = false;
+int score;
 
 //Keyboard variables
 boolean akey, dkey, leftkey, rightkey;
 
 //Bricks
+int n;
+int brickd;
 int [] x;
 int [] y;
-
+int tempx;
+int tempy;
+boolean shift;
+int shifter;
+boolean[] alive;
 
 //Sound
 Minim minim;
@@ -49,7 +57,7 @@ void setup() {
 
   //initialise ball
   ballx = width/2;
-  bally = height/2;
+  bally = height-200;
   balld = 50;
   s = 5;
   vx = s*cos(random(360));
@@ -63,15 +71,35 @@ void setup() {
 
 
   //initalise arrays
-  x = new int[3];
-  y = new int[3];
+  n = 30;
+  shift = false;
+  x = new int[n];
+  y = new int[n];
+  alive = new boolean[n];
+  tempx = 50;
+  tempy = 100;
+  brickd = 50;
 
-  x[0] = 100;
-  y[0] = 100;
-  x[1] = 400;
-  y[1] = 100;
-  x[2] = 700;
-  y[2] = 100;
+  int i = 0;
+  while (i < n)
+  {
+    if(shift == false){
+     shifter = 50; 
+    }
+    else shifter = 0;
+    x[i] = tempx;
+    y[i] = tempy;
+    alive[i] = true;
+    tempx = tempx +100;
+    if (tempx >= width) {
+      tempy = tempy+ 100;
+      tempx = 50 + shifter;
+      shift = !shift;
+    }
+    i =i+ 1;
+  }
+
+
 
 
   //Sound
