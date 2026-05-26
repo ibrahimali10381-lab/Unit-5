@@ -1,8 +1,9 @@
 void game() {
 
-  background(blue);
+  background(black);
   textAlign(CENTER);
   stroke(0);
+  image(deathStar, width/2, height/2, width, 600);
 
 
 
@@ -18,6 +19,7 @@ void game() {
 
   //draw paddles
   fill(pink);
+
   circle(paddlex, paddley, paddled);
   fill(255);
 
@@ -66,9 +68,9 @@ void game() {
 
 
   fill(255);
-  if (score == 3000){
-   mode = GAMEOVER;
-   win = true;
+  if (score == 3000) {
+    mode = GAMEOVER;
+    win = true;
   }
 }
 
@@ -79,6 +81,8 @@ void gameClicks() {
 
 void bricked(int i) {
   circle(x[i], y[i], brickd);
+  image(tie, x[i], y[i], brickd-10, brickd-10);
+
   if (dist(x[i], y[i], ballx, bally) <= (balld+brickd)/2) {
     vx = (ballx - x[i])/a;
     vy = (bally - y[i])/a;

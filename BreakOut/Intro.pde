@@ -1,3 +1,6 @@
-void Intro(){
-  
+void Intro() {
+}
+
+void IntroClicks() {
+  mode = GAME;
 }

@@ -9,7 +9,7 @@ import ddf.minim.ugens.*;
 color pink = #E82F25;
 color green = #32D302;
 color blue = #5FA1E5;
-
+color black = #171717;
 
 //Intro stuff
 int time;
@@ -44,6 +44,13 @@ boolean shift;
 int shifter;
 boolean[] alive;
 
+
+//Image
+PImage tie, deathStar;
+PImage [] gif;
+int frames;
+int f;
+
 //Sound
 Minim minim;
 AudioPlayer theme;
@@ -51,7 +58,8 @@ AudioPlayer theme;
 void setup() {
   size(800, 800);
   textAlign(CENTER);
-  mode = GAME;
+  imageMode(CENTER);
+  mode = INTRO;
 
 
 
@@ -100,7 +108,18 @@ void setup() {
   }
 
 
-
+  //Images
+  tie = loadImage("13-134418_star-wars-tie-fighter-icon-hd-png-download.png");
+  deathStar = loadImage("download.png");
+  gif = new PImage[27];
+  frames = 27;
+  
+  int k = 0;
+  while (k<frames){
+    gif[k] = loadImage("frame_"+k+"_delay-0.1s.gif");
+    k++;
+  }
+  
 
   //Sound
   minim = new Minim(this);
