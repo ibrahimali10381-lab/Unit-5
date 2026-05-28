@@ -1,6 +1,6 @@
 void Intro() {
   image(background, 0, 0, height, width);
-  
+
   theme.play();
 
   if (time ==1 && cloudOn == false) {
@@ -10,44 +10,42 @@ void Intro() {
   if (cloudOn == true && cloudMove <width) {
     image(cloud, cloudMove, cloudY, 300, 100);
     cloudMove += 1;
-  } else if (cloudMove < width){
+  } else if (cloudMove < width) {
     time = 0;
-  cloudMove = 0;
-}
+    cloudMove = 0;
+  }
 
-strokeWeight(5);
-stroke(0);
+  strokeWeight(5);
+  stroke(0);
 
-vx = s*cos(random(360));
-vy = s*sin(random(360));
+  vx = s*cos(random(360));
+  vy = s*sin(random(360));
 
 
-tactileRect(300, 500, 200, 100);
-rect(300, 500, 200, 100);
-textSize(100);
+  tactileRect(300, 500, 200, 100);
+  rect(300, 500, 200, 100);
+  textSize(100);
 
-stroke(0);
-tactileRect(300, 650, 200, 100);
-rect(300, 650, 200, 100);
-textSize(100);
+  stroke(0);
+  tactileRect(300, 650, 200, 100);
+  rect(300, 650, 200, 100);
+  textSize(100);
 
-fill(pink);
-text("MARIO", 250, 200);
+  imageMode(CENTER);
+  image(text, 400, 200, 600, 200);
 
-fill(green);
-text("PONG", 550, 200);
+  imageMode(CORNER);
+  fill(pink);
+  textSize(50);
+  text("1 PLAYER", 400, 575);
+  fill(255);
 
-fill(pink);
-textSize(50);
-text("1 PLAYER", 400, 575);
-fill(255);
+  fill(green);
+  textSize(50);
+  text("2 PLAYER", 400, 725);
+  fill(255);
 
-fill(green);
-textSize(50);
-text("2 PLAYER", 400, 725);
-fill(255);
-
-time += 1;
+  time += 1;
 }
 
 void IntroClicks() {

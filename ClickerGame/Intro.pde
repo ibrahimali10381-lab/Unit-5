@@ -66,7 +66,6 @@ void targetShape(int num, float x, float y, float d) {
     pushMatrix();
     translate(x, y);
     fill(randomR, randomG, randomB);
-    stroke(randomR, randomG, randomB);
     strokeWeight(2);
     ellipse(0, d * 0.2, d * 1.5, d * 0.4);
     textAlign(CENTER, CENTER);

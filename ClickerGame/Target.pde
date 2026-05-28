@@ -7,12 +7,25 @@ void target() {
     randomB = random(255);
   }
 
+
+  if (dist(mouseX, mouseY, 200, 200)<(width+height)/16) {
+    stroke(255, 0, 0);
+  }
   targetShape(0, 200, 200, (width+height)/16);
+  stroke(0);
+
+  if (dist(mouseX, mouseY, 400, 200)<(width+height)/16) {
+    stroke(255, 0, 0);
+  }
+
   targetShape(1, 400, 200, (width+height)/16);
+  stroke(0);
+
+
+  if (dist(mouseX, mouseY, 600, 200)<(width+height)/16) {
+    stroke(255, 0, 0);
+  }
   targetShape(2, 600, 200, (width+height)/16);
-
-
-
 
 
 
@@ -20,7 +33,7 @@ void target() {
   tactileRect(300, 675, 200, 100);
   rect(300, 675, 200, 100);
   stroke(0);
-  
+
   targetShape(targetType, 400, 400, (width+height)/16);
 
 
@@ -30,13 +43,13 @@ void target() {
 }
 
 void TargetClicks() {
-  if (dist(mouseX,mouseY,200,200)<d) {
+  if (dist(mouseX, mouseY, 200, 200)<(width+height)/16) {
     targetType = 0;
   }
-  if (dist(mouseX,mouseY,400,200)<d) {
+  if (dist(mouseX, mouseY, 400, 200)<(width+height)/16) {
     targetType = 1;
   }
-  if (dist(mouseX,mouseY,600,200)<d) {
+  if (dist(mouseX, mouseY, 600, 200)<(width+height)/16) {
     targetType = 2;
   }
 

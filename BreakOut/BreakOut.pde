@@ -111,6 +111,7 @@ void setup() {
   //Images
   tie = loadImage("13-134418_star-wars-tie-fighter-icon-hd-png-download.png");
   deathStar = loadImage("download.png");
+  deathStar.resize(width, 600);
   gif = new PImage[27];
   frames = 27;
   

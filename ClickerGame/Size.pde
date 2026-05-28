@@ -16,34 +16,38 @@ void Size() {
 
 
   strokeWeight(1);
-  circle(sliderX, 450, 25);
-  strokeWeight(5);
-
-
-  stroke(0);
-  tactileRect(300, 675, 200, 100);
-  rect(300, 675, 200, 100);
-  stroke(0);
-
-
-  fill(255);
-  textSize(50);
-  text("HOME", 400, 725);
-  text("SIZE", 400, 100);
-}
-
-void SizeClicks() {
-  if (mouseX>300 && mouseX <500 && mouseY>675 && mouseY<775) {
-    mode = INTRO;
-  }
-  SliderX();
-}
-
-
-
-void SliderX() {
   if (mouseX>250 && mouseX<600 && mouseY <475 && mouseY >425) {
-    sliderX = mouseX;
+    strokeWeight(5);
+    stroke(255, 0, 0);
   }
-  d = map(sliderX, 250, 600, 50, 255);
-}
+    circle(sliderX, 450, 50);
+    strokeWeight(5);
+
+
+    stroke(0);
+    tactileRect(300, 675, 200, 100);
+    rect(300, 675, 200, 100);
+    stroke(0);
+
+
+    fill(255);
+    textSize(50);
+    text("HOME", 400, 725);
+    text("SIZE", 400, 100);
+  }
+
+  void SizeClicks() {
+    if (mouseX>300 && mouseX <500 && mouseY>675 && mouseY<775) {
+      mode = INTRO;
+    }
+    SliderX();
+  }
+
+
+
+  void SliderX() {
+    if (mouseX>250 && mouseX<600 && mouseY <475 && mouseY >425) {
+      sliderX = mouseX;
+    }
+    d = map(sliderX, 250, 600, 50, 255);
+  }

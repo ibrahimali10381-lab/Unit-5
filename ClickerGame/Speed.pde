@@ -12,6 +12,10 @@ void speed() {
 
 
   strokeWeight(1);
+  if (mouseX>250 && mouseX<600 && mouseY <475 && mouseY >425) {
+    strokeWeight(5);
+    stroke(255, 0, 0);
+  }
   circle(sliderSpeed, 450, 25);
   strokeWeight(5);
 

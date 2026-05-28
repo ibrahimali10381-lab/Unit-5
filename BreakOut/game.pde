@@ -3,9 +3,7 @@ void game() {
   background(black);
   textAlign(CENTER);
   stroke(0);
-  image(deathStar, width/2, height/2, width, 600);
-
-
+  image(deathStar, width/2, height/2);
 
   //bricks
 
@@ -65,8 +63,13 @@ void game() {
     vy = (bally - paddley)/a;
     a = a/1.05;
   }
-
-
+  
+  
+  //Score
+  textSize(50);
+  text("Score: "+score, 150, height-100); 
+  
+  
   fill(255);
   if (score == 3000) {
     mode = GAMEOVER;

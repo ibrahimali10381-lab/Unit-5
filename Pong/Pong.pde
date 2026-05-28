@@ -41,7 +41,7 @@ int score1, score2, timer;
 
 
 //Images
-PImage background, cloud;
+PImage background, cloud, text, mario, luigi;
 
 //Sound
 Minim minim;
@@ -83,6 +83,9 @@ void setup() {
   //Images
   background = loadImage("wp7619435.jpg");
   cloud = loadImage("cloud.png");
+  text = loadImage("txt.png");
+  mario = loadImage("mario.png");
+  luigi = loadImage("luigi.png");
 
 
   //Sound

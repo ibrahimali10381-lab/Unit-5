@@ -2,18 +2,42 @@ void game() {
   background(blue);
   textAlign(CENTER);
   stroke(0);
+  theme.play();
+
+
+    if (frameCount >= 4000) {
+    theme.rewind();
+    theme.play();
+  }
 
 
   //draw paddles
+  textAlign(CENTER);
   fill(pink);
   circle(leftx, lefty, leftd);
   fill(255);
   circle(leftx, lefty, leftd/2);
+  fill(pink);
+  pushMatrix();
+  translate(leftx, lefty);
+  rotate(radians(90));
+  fill(pink);
+  textSize(leftd/4);
+  text("M", 0, 0);
+  popMatrix();
 
   fill(green);
   circle(rightx, righty, rightd);
   fill(255);
   circle(rightx, righty, rightd/2);
+  fill(green);
+  pushMatrix();
+  translate(rightx, righty);
+  rotate(radians(-90));
+  fill(green);
+  textSize(rightd/4);
+  text("L", 0, 0);
+  popMatrix();
 
   //move paddles
   if (wkey == true) lefty = lefty -10;
@@ -25,12 +49,10 @@ void game() {
     if (downkey == true) righty = righty +10;
   } else if (ballx>width/2) {
 
-    if (righty < bally) {
-      righty += 10;
-      righty += 0.1;
-    } else if (righty > bally) {
-      righty -= 10;
-      righty -= 0.1;
+    if (bally - righty > 15) {
+      righty += 15;
+    } else if (righty - bally > 15) {
+      righty -= 15;
     }
   }
 
@@ -43,6 +65,7 @@ void game() {
 
 
   //ball
+  fill(255);
   circle(ballx, bally, balld);
 
   if (timer < 0) {
