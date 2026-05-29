@@ -9,7 +9,7 @@ import ddf.minim.ugens.*;
 color pink = #E82F25;
 color green = #32D302;
 color blue = #5FA1E5;
- 
+
 
 //Intro stuff
 boolean cloudOn;
@@ -31,6 +31,11 @@ float ballx, bally, balld;//ball
 float vx, vy, s;
 boolean AI = false;
 float a =15;
+boolean flowerOn;
+float flowerx,flowery;
+int random;
+boolean fireOn;
+int flowtime;
 
 //Keyboard variables
 boolean wkey, skey, upkey, downkey;
@@ -41,11 +46,11 @@ int score1, score2, timer;
 
 
 //Images
-PImage background, cloud, text, mario, luigi;
+PImage background, cloud, text, mario, luigi, fire;
 
 //Sound
 Minim minim;
-AudioPlayer theme;
+AudioPlayer theme, ping, score;
 
 void setup() {
   size(800, 800);
@@ -86,11 +91,14 @@ void setup() {
   text = loadImage("txt.png");
   mario = loadImage("mario.png");
   luigi = loadImage("luigi.png");
+  fire = loadImage("fire.png");
 
 
   //Sound
   minim = new Minim(this);
   theme = minim.loadFile("SUPER MARIO BROS. THEME SONG - OFFICIAL REMIX (TRAP MUSIC).mp3");
+  ping = minim.loadFile("freesound_community-tennis-smash-100733.mp3");  
+  score = minim.loadFile("dragon-studio-ding-402325.mp3");  
 }
 
 void draw() {

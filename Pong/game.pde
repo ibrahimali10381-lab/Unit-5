@@ -5,7 +5,7 @@ void game() {
   theme.play();
 
 
-    if (frameCount >= 4000) {
+  if (frameCount == 4140 || frameCount%4140 == 0) {
     theme.rewind();
     theme.play();
   }
@@ -57,15 +57,29 @@ void game() {
   }
 
 
+
+
   if (lefty <leftd/2) lefty = leftd/2;
   if (righty <rightd/2) righty = rightd/2;
   if (lefty >height-leftd/2) lefty = height-leftd/2;
   if (righty >height-rightd/2) righty = height-rightd/2;
 
-
-
-  //ball
   fill(255);
+
+  if (fireOn == true) {
+    a= 4;
+    flowtime += 1;
+    fill(240,138,44);
+  }
+  
+  if (flowtime > 100){
+   flowtime =0;
+   fireOn = false;
+   flowerOn = false;
+   a = 12;
+  }
+  
+  //ball
   circle(ballx, bally, balld);
 
   if (timer < 0) {
@@ -84,6 +98,8 @@ void game() {
     a = 15;
     vx = s*cos(random(360));
     vy = s*sin(random(360));
+    score.rewind();
+    score.play();
   }
   if (ballx>width) {
     score1 +=1;
@@ -93,6 +109,8 @@ void game() {
     a = 15;
     vx = s*cos(random(360));
     vy = s*sin(random(360));
+    score.rewind();
+    score.play();
   }
 
 
@@ -105,14 +123,18 @@ void game() {
 
   //Ball Bounce Paddles
   if (dist(leftx, lefty, ballx, bally) <= (balld+leftd)/2) {
+    ping.rewind();
+    ping.play();
     vx = (ballx - leftx)/a;
     vy = (bally - lefty)/a;
-    a = a/1.1;
+    if (a> 5)     a = a/1.1;
   }
   if (dist(rightx, righty, ballx, bally) <= (balld+rightd)/2) {
     vx = (ballx - rightx)/a;
     vy = (bally - righty)/a;
-    a = a/1.1;
+    if (a> 5)     a = a/1.1;
+    ping.rewind();
+    ping.play();
   }
 
   //ScoreBoard
@@ -129,6 +151,22 @@ void game() {
   if (score1 == 7 || score2 == 7) {
     mode = GAMEOVER;
   }
+
+  //Fire
+  if (flowerOn == false && random == 0) {
+    flowerOn = true;
+    flowerx = random(150, 750);
+    flowery = random(150, 750);
+  }
+
+  if (flowerOn == true) {
+    image(fire, flowerx, flowery, 100, 100);
+    if (dist(ballx, bally, flowerx, flowery)<50+balld/2) {
+      flowerOn = false;
+      fireOn = true;
+    }
+  }
+  random = int(random(0, 1));
 }
 
 void gameClicks() {
